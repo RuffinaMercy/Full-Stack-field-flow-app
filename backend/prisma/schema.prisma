@@ -1,0 +1,47 @@
+// This is your Prisma schema file.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// --- Model 1 ---
+model Employee {
+  id          String      @id @default(cuid())
+  emp_id      String      @unique
+  name        String
+  createdAt   DateTime    @default(now())
+  deliveries  Delivery[]
+  expenses    Expense[]
+}
+
+// --- Model 2 ---
+model Delivery {
+  id          String    @id @default(cuid())
+  gas_price   Float
+  cust_id     String
+  date        DateTime  @default(now())
+  employee    Employee  @relation(fields: [employeeId], references: [id])
+  employeeId  String
+}
+
+// --- Model 3 ---
+model Expense {
+  id          String    @id @default(cuid())
+  category    String
+  price       Float
+  date        DateTime  @default(now())
+  employee    Employee  @relation(fields: [employeeId], references: [id])
+  employeeId  String
+}
+
+// --- Model 4 (DEFINED ONLY ONCE) ---
+model AdminUser {
+  id        String    @id @default(cuid())
+  username  String    @unique @default("admin")
+  password  String
+}

@@ -1,0 +1,28 @@
+# This file defines our development database service using Docker.
+version: '3.8'
+
+services:
+  # This is the name of our service. We'll call it 'db'.
+  db:
+    # We will use the official PostgreSQL image, version 16.
+    image: postgres:16
+    # Always restart the container if it stops, unless we stop it manually.
+    restart: always
+    # These are the environment variables required to set up the database.
+    # IMPORTANT: Do NOT use these simple passwords in a real production environment.
+    environment:
+      POSTGRES_USER: myuser        # The username for the database
+      POSTGRES_PASSWORD: mypassword  # The password for the user
+      POSTGRES_DB: field_flow_db   # The name of the database to create
+    # This maps a port from our computer to the container.
+    # We can connect to our database on localhost:5432.
+    ports:
+      - '5432:5432'
+    # This creates a persistent storage volume.
+    # It ensures that even if you stop or remove the container, your data is not lost.
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+# This defines the named volume we used above.
+volumes:
+  postgres_data:
