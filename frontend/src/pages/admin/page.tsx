@@ -94,7 +94,7 @@
 
 
 // src/pages/admin/page.tsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Typography, Box, Paper, Button, CircularProgress, Alert } from '@mui/material';
 import ReportTable from '../../components/admin/data-reports/ReportTable';
 import { getAdminReports } from '../../services/apiService';

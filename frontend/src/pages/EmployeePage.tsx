@@ -1,6 +1,6 @@
 // src/pages/EmployeePage.tsx
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   Box, Container, Typography, Button, Card, CardContent, TextField,
   Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle,

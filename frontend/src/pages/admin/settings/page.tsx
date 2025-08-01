@@ -218,7 +218,7 @@
 
 
 // src/pages/admin/settings/page.tsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Typography, Box, Card, CardHeader, CardContent, Button,
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
