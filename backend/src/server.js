@@ -11,13 +11,12 @@ const app = express();
 
 // Configure CORS for Production and Development
 const allowedOrigins = [
-  'https://full-stack-field-flow-qq93q24le.vercel.app', // Your production Vercel URL
+  'https://full-stack-field-flow-bxdrhz223.vercel.app', // Your production Vercel URL
   'http://localhost:5173'                               // Your local development URL
 ];
 
 const corsOptions = {
   origin: function (origin, callback) {
-    // Allow requests if the origin is in our list, or if there's no origin (like from Postman)
     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
       callback(null, true);
     } else {
