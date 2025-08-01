@@ -1,5 +1,8 @@
-// frontend/tsconfig.json
 {
+  "compilerOptions": {
+    // Adding this here as a fallback
+    "jsx": "react-jsx"
+  },
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
