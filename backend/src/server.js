@@ -9,7 +9,7 @@ const adminRoutes = require('./routes/adminRoutes');
 
 const app = express();
 
-// Configure CORS for Production
+// Configure CORS for Production and Development
 const allowedOrigins = [
   'https://full-stack-field-flow-qq93q24le.vercel.app', // Your production Vercel URL
   'http://localhost:5173'                               // Your local development URL
